@@ -132,6 +132,9 @@ dmypy.json
 
 .idea/
 data/
-export/
+export/*.gif
+export/*.pdf
+export/*.png
+export/*.jpg
 models/
 modmodels/
