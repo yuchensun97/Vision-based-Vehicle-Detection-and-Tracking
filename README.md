@@ -2,7 +2,9 @@
 
 ## Dataset
 
-TODO:
+We download the images from the Udacity labeled dataset. The dataset includes images of cars vs none-car objects, e.g. road, lane marking, trees, people, etc. The dateset includes the Number of cars = 8792, Number of not cars = 8968, Image data shape = (64, 64, 3).
+
+To improve the training data, we found a dataset containing additional fields for occlusion and an additional label for traffic lights. The frames are collected from Point Grey research cameras running at a full resolution of 1920 $\times$ 1200 at 2Hz. The images were annotated entirely by humans using Autti and is slightly larger with 15,000 frames. The labels include classes of car, truck, pedestrian, and street lights.
 
 ## Image Preprocessing
 
