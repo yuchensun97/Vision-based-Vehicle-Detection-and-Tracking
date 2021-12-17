@@ -40,23 +40,23 @@ After detections and tracking, we have already match the cars to the tracker. Ho
 
 At time $t-1$, assume that we have obtained the object's state $X_{t-1}$ and the state covariance matrix $P_{t-1}$.
 
-$X_{t-1} = [x_{t-1}, \dot{x}_{t-1}, y_{t-1}, \dot{y}_{t-1}, w_{t-1}, \dot{w}_{t-1}, h_{t-1}, \dot{h}_{t-1}]^T$
+$$X_{t-1} = [x_{t-1}, \dot{x}_{t-1}, y_{t-1}, \dot{y}_{t-1}, w_{t-1}, \dot{w}_{t-1}, h_{t-1}, \dot{h}_{t-1}]^T$$
 
 where $[x_{t-1}, y_{t-1}, w_{t-1}, h_{t-1}]$ represents the box's position, and $[\dot{x}_{t-1}, \dot{y}_{t-1}, \dot{w}_{t-1}, \dot{h}_{t-1}]$ represent the box's velocity for that object.
 
 The mean prediction phase for the current detection is now:
 
-$\bar{X} = F X_{t-1}$
+$$\bar{X} = F X_{t-1}$$
 
-$\bar{P} = F P F^T + Q$
+$$\bar{P} = F P F^T + Q$$
 
 where $F$ is the state transition matrix and $Q$ is the process covariance matrix.
 
 The updated phase can now be illustrated with the following equations
 
-$K = \bar{P}H^T(H\bar{P}H^T + R)^{-1}$
+$$K = \bar{P}H^T(H\bar{P}H^T + R)^{-1}$$
 
-$X_{t} = \bar{X} + K(z - HX_{t-1})$
+$$X_{t} = \bar{X} + K(z - HX_{t-1})$$
 
 Here $z = [x_t, y_t, w_t, h_t]^T$ is the input measurement, $H$ is the measurement transition matrix, $R$ is the measurement noise covariance and $K$ is the Kalman gain.
 
