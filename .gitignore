@@ -134,7 +134,6 @@ dmypy.json
 data/
 export/*.gif
 export/*.pdf
-export/*.png
 export/*.jpg
 models/
 modmodels/
