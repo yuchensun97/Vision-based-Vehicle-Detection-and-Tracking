@@ -4,13 +4,20 @@ import glob
 from torch.utils.data import Dataset, DataLoader
 
 from constant import *
-
+import torchvision
 
 class VehicleDataset(Dataset):
     def __init__(self, image_dir: str, label: int, transform=None):
         self.image_paths = []
         self.label = label
-        self.transform = transform  # TODO: add transformation to images
+        self.transform = torchvision.transforms.Compose([torchvision.transforms.ToPILImage(),
+                                                         torchvision.transforms.Resize(256),
+                                                         torchvision.transforms.RandomCrop(224),
+                                                         torchvision.transforms.RandomHorizontalFlip(),
+                                                         torchvision.transforms.ToTensor(),
+                                                         torchvision.transforms.Normalize([0.485, 0.456, -.406],
+                                                                                          [0.229, 0.224, 0.225])
+                                                         ])
 
         head_dir = os.path.join(DATA_DIR, image_dir)
         for d in os.listdir(head_dir):
